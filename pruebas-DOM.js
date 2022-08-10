@@ -32,8 +32,10 @@ function mascotaNueva() {
 
 // FUNCIONA. Muestra el listado y da la opcion de elegir una mascota para adoptar. Error en linea 38. [object]
 function mostrarListaConDatos() {
-    mascotas.forEach(mascota => console.log(
-        `numero: ${mascota.id} nombre: ${mascota.nombre} raza: ${mascota.raza} edad: ${mascota.edad} años precio: $${mascota.precio} `));
+let mensaje=(
+   mascotas.forEach(mascota => console.log(
+        `numero: ${mascota.id} nombre: ${mascota.nombre} raza: ${mascota.raza} edad: ${mascota.edad} años precio: $${mascota.precio} `)));
+        document.getElementById("listaMascotas").innerHTML=mensaje;
     // let eleccion = prompt("elija que mascota quiere comprar");
     // if (eleccion = mascotas.find(mascota => mascota.nombre === eleccion)) {
     //     console.log(`gracias por comprar a  ${JSON.stringify(eleccion)}`);
@@ -57,16 +59,23 @@ function agregarMascota() {
 
 // FUNCIONA
 function cantidadMascotas() {
-    console.log("hay " + mascotas.length + " mascotas en la lista")
-
+   let mensaje=`hay ${mascotas.length} mascotas en la lista`
+document.getElementById("cantidad").innerHTML=mensaje;
+console.log(mensaje);
 }
 
 // FUNCIONA  
 function buscarMascota() {
     let buscar = prompt("escriba el nombre de la mascota a buscar");
     const resultado = mascotas.find((mascota) => mascota.nombre == buscar);
-    console.log (JSON.stringify(resultado));
-   
+    if (undefined){
+        let mensaje="no existe";
+    }else{
+
+    
+   let mensaje= (JSON.stringify(resultado));
+    document.getElementById("porNombre").innerHTML=mensaje;
+    }
 
 }
 
@@ -74,5 +83,8 @@ function buscarMascota() {
 function buscarRaza() {
     let buscarPorRaza = prompt("ingrese la raza");
     const resultado2 = mascotas.filter((mascota) => mascota.raza == buscarPorRaza);
-    console.log(JSON.stringify(resultado2));
+    let mensaje= (JSON.stringify(resultado2));
+    
+    document.getElementById("porRaza").innerHTML=mensaje;
+    
 }
